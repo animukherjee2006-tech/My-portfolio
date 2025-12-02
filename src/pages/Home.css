@@ -1,0 +1,32 @@
+.electric-border {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;      
+  padding: 5px;         
+  background: linear-gradient(
+      135deg,
+      #00eaff,
+      #00ffc8,
+      #0099ff,
+      #00eaff,
+      #00ffc8
+  );
+  background-size: 400% 400%;
+  animation: glowRotate 4s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.electric-border img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;       
+  display: block;
+}
+
+@keyframes glowRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
