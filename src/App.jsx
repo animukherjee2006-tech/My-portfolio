@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import './App.css';
 import Navber from "./component/Navber";
 import About from "./pages/About";
 import Home from "./pages/Home";
