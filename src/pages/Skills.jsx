@@ -3,12 +3,12 @@ import React from 'react'
 function Skills() {
   return (
     <div
-    style={{width:"100%",height:"100vh",backgroundColor:"darkblue",color:"yellow"}}
+    style={{width:"100%",height:"100vh",backgroundColor:"darkblue",color:"yellow",margin:"0",padding:"20px",overflowX:"hidden"}}
     >
 
       
      <h1 style={{textAlign:"center"}}>My skills are:</h1>
-     <div style={{justifyItems:"center",fontSize:"20px"
+     <div style={{display:"flex",justifyItems:"center",fontSize:"20px"
      }}>
       <ul>
         <ul>

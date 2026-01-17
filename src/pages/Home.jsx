@@ -6,7 +6,7 @@ import './Home.css';
 function Home() {
     const navigate= useNavigate();
   return (
-    <div style={{backgroundColor:"#0f172a",color:"#ffffff", width:"100%",height:"100vh",display:"flex",alignItems:"center",
+    <div style={{backgroundColor:"#0f172a",color:"#ffffff", width:"auto",height:"100vh",display:"flex",alignItems:"center",
         justifyContent:"center",
         gap:"5rem",margin:"0px"
     }}>

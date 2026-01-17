@@ -7,21 +7,21 @@ function Contact() {
 <>
    
     <div  style={{width:"100%",height:"100vh",
-      display:"flex",justifyContent:"center",alignItems:"center",
+justifyContent:"center",alignItems:"center",paddingLeft:"30%",
       backgroundColor:"#1E1B2E"
       }}>
         <div 
         onMouseEnter={()=>sethover(0)}
         onMouseLeave={() =>sethover(null)}
         style={{
-         width:"50%",height:"50vh",margin:"1rem",border:" solid blue",color:"blue",display:"flex",alignContent:"center",borderRadius:"100px",
+         width:"30%",height:"50vh",margin:"1rem",border:" solid blue",color:"blue",display:"flex",alignContent:"center",borderRadius:"100px",
          backgroundColor:hover===0? "#1A1A40":"#6C5B7B"
         }}>
        <form 
       action="https://formsubmit.co/animukherjee2006@gmail.com" 
       method="POST"
       style={{
-        width: "100%",
+        width: "30%",
         maxWidth: "400px",
         height:"40vh",
         margin: "auto",
