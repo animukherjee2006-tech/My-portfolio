@@ -1,0 +1,53 @@
+.navWraper{
+    position: relative;
+}
+
+.menu-btn{
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.menu-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(red, green, blue, alpha);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+.menu-box{
+    width: 80vw;
+    height: 50vh;
+    justify-content: center;
+    max-width: 300px;
+    background: black;
+    border: 1px solid white;
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.menu-box ul{
+    list-style: none;
+    padding: 0;
+}
+
+.menu-box li{
+    padding: 8px;
+    cursor: pointer;
+}
+
+.menu-box li:hover{
+    color: blue;
+}
+
+@media(max-width:500px){
+    .menu-box{
+        width: 90vw;
+    }
+}

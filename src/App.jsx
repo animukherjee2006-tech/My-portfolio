@@ -4,7 +4,6 @@ import Navber from "./component/Navber";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import Education from "./pages/Education";
 import Project from "./pages/Project";
 import Skills from "./pages/Skills";
 import Footer from "./component/footer";
@@ -28,18 +27,16 @@ function App(){
 
   return(
     <>
+      <Navber/>
     <ScrollTosection/>
-        
-            <Navber/>
-        
+        <div style={{marginTop:"6vh"}}>
         <section id="home"><Home/></section>
         <section id="about"><About/></section>
-        <section id="education"><Education/></section>
         <section id="project"><Project/></section>
         <section id="skills"><Skills/></section>
         <section id="contact"><Contact/></section>
            <Footer/>
-        
+        </div>
     </>
     
   )

@@ -1,0 +1,29 @@
+.abt{
+    padding: 5%;
+    width: auto;
+    height: auto;
+    color: blue;
+    background-color: black;
+    text-align: center;
+}
+
+.typing{
+    text-align: center;
+    height: 35vh;
+    cursor: pointer;
+    border-radius:15%;
+    border: 1px solid white;
+   white-space: normal;
+   overflow: hidden;
+   font-size: clamp(1rem,2vw,1.4rem);
+   animation: typing 6s linear forwards;
+
+}
+
+@keyframes typing{
+    from {clip-path: inset(0 100% 0 0);}
+    to{
+        clip-path: inset(0 0 0 0);
+    }
+}
+

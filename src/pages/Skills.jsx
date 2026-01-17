@@ -1,39 +1,56 @@
 import React from 'react'
+import python from "../assets/python.jpeg"
+import c from "../assets/c.jpeg"
+import cpp from "../assets/c++.jpeg"
+import css from "../assets/css.jpeg"
+import dsa from "../assets/dsa.jpeg"
+import express from "../assets/express.jpeg"
+import js from "../assets/js.jpeg"
+import mongo from "../assets/mongo.jpeg"
+import nodejs from "../assets/nodejs.jpeg"
+import mern from "../assets/mern.jpeg"
+import react from "../assets/react.jpeg"
+import './skills.css'
 
 function Skills() {
   return (
-    <div
-    style={{width:"100%",height:"100vh",backgroundColor:"darkblue",color:"yellow",margin:"0",padding:"20px",overflowX:"hidden"}}
-    >
+    <div className='skll'>
+      <div className='skl1'>
+         <div className='cc'>
+          <img  style={{width:"100%",height:"auto"}}src={c} alt="c" /></div>
 
-      
-     <h1 style={{textAlign:"center"}}>My skills are:</h1>
-     <div style={{display:"flex",justifyItems:"center",fontSize:"20px"
-     }}>
-      <ul>
-        <ul>
-          <h3>Language:</h3>
-          <li>c</li>
-          <li>c++</li>
-          <li>Python</li>
-          <li>Javascript</li>
-        </ul>
-        <ul>
-          <li>HTML:Hyper Text Markup Language</li>
-          <li>CSS:Caschading Style Sheet</li>
-        </ul>
+          <div className='cppp'>
+          <img  style={{width:"100%",height:"auto"}}src={cpp} alt="cpp" /></div>
 
-        <ul>
-          <h3>Library & FrameWorks:</h3>
-          <li>React js</li>
-          <li>Node js</li>
-          <li>Next js</li>
-          <li>Mongodb</li>
-        </ul>
+          <div className='csss'>
+          <img  style={{width:"100%",height:"auto"}}src={css} alt="css" /></div>
 
-        <ul>I am also proficent in making sclable webapplication with Git & Github</ul>
-      </ul>
-      </div>
+           <div className='jss'>
+          <img  style={{width:"100%",height:"auto"}}src={js} alt="js" /></div>
+          </div>
+         <div className='skl2' >
+          <div className='pythonn'>
+          <img  style={{width:"100%",height:"auto"}}src={python} alt="python" /></div>
+
+          <div className='mernn'>
+          <img  style={{width:"100%",height:"auto"}}src={mern} alt="mern" /></div>
+
+          <div className='nodejss'>
+          <img  style={{width:"100%",height:"auto"}}src={nodejs} alt="nodejs" /></div>
+
+          <div className='mongoo'>
+          <img  style={{width:"100%",height:"auto"}}src={mongo} alt="mongo" /></div>
+          
+          </div>
+
+          <div className='skl3'>
+            <div className='dsa'>
+          <img  style={{width:"100%",height:"auto"}}src={dsa} alt="dsa" /></div>
+          
+            <div className='react'>
+          <img  style={{width:"100%",height:"auto"}}src={react} alt="react" />
+          </div>
+          </div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Contact.css'
 
 function Contact() {
   const [hover,sethover]= useState(null)
@@ -6,24 +7,21 @@ function Contact() {
   return (
 <>
    
-    <div  style={{width:"100%",height:"100vh",
-justifyContent:"center",alignItems:"center",paddingLeft:"30%",
-      backgroundColor:"#1E1B2E"
-      }}>
+    <div className="cont">
         <div 
         onMouseEnter={()=>sethover(0)}
         onMouseLeave={() =>sethover(null)}
         style={{
-         width:"30%",height:"50vh",margin:"1rem",border:" solid blue",color:"blue",display:"flex",alignContent:"center",borderRadius:"100px",
+         width:"80%",height:"50vh",margin:"10%",border:" solid blue",color:"blue",display:"flex",alignContent:"center",borderRadius:"10%",
          backgroundColor:hover===0? "#1A1A40":"#6C5B7B"
         }}>
        <form 
       action="https://formsubmit.co/animukherjee2006@gmail.com" 
       method="POST"
       style={{
-        width: "30%",
+        width: "80%",
         maxWidth: "400px",
-        height:"40vh",
+        height:"30vh",
         margin: "auto",
         display: "flex",
         flexDirection: "column",
@@ -79,8 +77,8 @@ justifyContent:"center",alignItems:"center",paddingLeft:"30%",
         onMouseEnter={()=>sethover(1)}
         onMouseLeave={() =>sethover(false)}
         style={{
-         width:"40%",height:"50vh",margin:"1rem",border:" solid blue",color:"white",textAlign:"center",justifyContent:"center",
-         borderRadius:"100px",
+         width:"80%",height:"50vh",margin:"10%",border:" solid blue",color:"white",textAlign:"center",justifyContent:"center",
+         borderRadius:"10%",
          backgroundColor:hover===1? "#1A1A40":"#6C5B7B"
         }}>
           <p>OR</p>
