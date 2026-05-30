@@ -5,32 +5,37 @@ import { useNavigate } from 'react-router-dom';
 function Navbar() {
   const navigate = useNavigate();
   const [show, setshow] = useState(true);
-  const [lasscrolly, setlastscrolly] = useState(0);
+  const [lastscrolly, setlastscrolly] = useState(0);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
 
-  useEffect(() => {
-    const handlescroll = () => {
-      if (window.scrollY < 0) return;
+// Change this inside Navbar.jsx:
+useEffect(() => {
+  const handlescroll = () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY < 0) return;
 
-      if (window.scrollY < lasscrolly) {
-        setshow(true);
-      } else if (window.scrollY > 40) {
-        setshow(false);
+    // Use a functional update to get the fresh snapshot of the previous state
+    setlastscrolly((prevScrollY) => {
+      if (currentScrollY < prevScrollY) {
+        setshow(true); // Scrolling up
+      } else if (currentScrollY > 40) {
+        setshow(false); // Scrolling down
       }
-      setlastscrolly(window.scrollY);
-    };
+      return currentScrollY;
+    });
+  };
 
-    window.addEventListener('scroll', handlescroll);
-    return () => window.removeEventListener('scroll', handlescroll);
-  }, [lasscrolly]);
+  window.addEventListener('scroll', handlescroll, { passive: true });
+  return () => window.removeEventListener('scroll', handlescroll);
+}, []); // Empty array! No more constant re-binding.
 
   return (
     <div
       style={{
-        position: 'sticky',
-        top: show ? '0' : '-12vh',
+        position: 'fixed',
+        top: show ? '0' : '-9vh',
         left: 0,
-        right: 0,
+        width: '100%',
         height: '9vh',
         boxSizing: 'border-box',
         zIndex: 2000,
@@ -47,6 +52,7 @@ function Navbar() {
         transition: 'top 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease'
       }}
     >
+      {/* LOGO SECTION */}
       <div
         onClick={() => navigate('/')}
         onMouseEnter={() => setIsLogoHovered(true)}
@@ -71,17 +77,8 @@ function Navbar() {
         </div>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          height: '100%',
-          position: 'relative',
-          transform: show ? 'translateY(0)' : 'translateY(-12px)',
-          opacity: show ? 1 : 0,
-          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-        }}
-      >
+      {/* MENU BUTTON SECTION */}
+      <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
         <Navbutton />
       </div>
     </div>

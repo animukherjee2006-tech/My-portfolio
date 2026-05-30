@@ -46,6 +46,7 @@ function Project() {
         backgroundSize: '40px 40px, 40px 40px, 100% 100%',
         color: '#ffffff',
         fontFamily: '"JetBrains Mono", "Inter", monospace, sans-serif'
+        
       }}
     >
       <style>{`

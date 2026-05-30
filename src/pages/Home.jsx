@@ -13,20 +13,22 @@ function Home() {
     <div
       className="Homi"
       style={{
+        left: 0,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
+        maxWidth: '100%', 
         minHeight: '100vh',
         boxSizing: 'border-box',
         gap: '40px',
-        padding: '60px 24px',
+        padding: '120px 24px 60px 24px',
         backgroundColor: '#050508',
         backgroundImage: 'radial-gradient(circle at 50% 30%, #121026 0%, #050508 75%)',
         color: '#ffffff',
         fontFamily: '"Inter", "Segoe UI", sans-serif',
-        overflow: 'hidden',
-        position: 'relative'
+        overflowX: 'hidden',
+       
       }}
     >
       <style>{`
@@ -50,24 +52,29 @@ function Home() {
             flex-direction: column !important;
             text-align: center !important;
             justify-content: center !important;
-            gap: 35px !important;
+            gap: 30px !important;
+            padding-top: 100px !important; /* Mobile adaptive display padding */
           }
           .hero-content-block {
             text-align: center !important;
             align-items: center !important;
+            width: 100% !important;
+            max-width: 100% !important;
           }
           .button-row-layout {
             justify-content: center !important;
+            width: 100% !important;
           }
         }
       `}</style>
 
+      {/* AVATAR WRAPPER */}
       <div
         onMouseEnter={() => setIsAvatarHovered(true)}
         onMouseLeave={() => setIsAvatarHovered(false)}
         style={{
-          width: 'clamp(210px, 25vw, 280px)',
-          height: 'clamp(210px, 25vw, 280px)',
+          width: 'clamp(200px, 25vw, 260px)', // Mobile resolution friendly scale adjustment
+          height: 'clamp(200px, 25vw, 260px)',
           borderRadius: '50%',
           padding: '5px',
           background: 'linear-gradient(135deg, #00eaff, #00ffc8, #0099ff, #00eaff, #00ffc8)',
@@ -82,7 +89,8 @@ function Home() {
             ? '0 0 35px rgba(0, 234, 255, 0.6), 0 0 15px rgba(0, 255, 200, 0.3)' 
             : '0 0 20px rgba(0, 153, 255, 0.3)',
           transform: isAvatarHovered ? 'scale(1.04)' : 'scale(1)',
-          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          boxSizing: 'border-box'
         }}
       >
         <img
@@ -93,32 +101,37 @@ function Home() {
             height: '100%',
             borderRadius: '50%',
             objectFit: 'cover',
-            border: '4px solid #050508'
+            border: '4px solid #050508',
+            display: 'block'
           }}
         />
       </div>
 
+      {/* HERO TEXT WRAPPER */}
       <div 
         className="hero-content-block"
         style={{ 
           maxWidth: '580px', 
+          width: '100%', // Explicit constraint setup
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'flex-start',
           textAlign: 'left',
-          animation: 'masterFadeIn 0.8s ease'
+          animation: 'masterFadeIn 0.8s ease',
+          boxSizing: 'border-box'
         }}
       >
         <h1
           style={{
-            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.4rem)', // Mobile font bleeding fallback handling
             fontWeight: '900',
             margin: '0 0 12px 0',
             letterSpacing: '-1.5px',
             lineHeight: '1.15',
             background: 'linear-gradient(180deg, #ffffff 40%, #a3a3a3 100%)',
             WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            WebkitTextFillColor: 'transparent',
+            width: '100%'
           }}
         >
           Welcome to my Portfolio
@@ -126,12 +139,14 @@ function Home() {
 
         <h2
           style={{
-            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
             fontWeight: '400',
             color: '#b3b3cc',
             lineHeight: '1.65',
             margin: '0 0 32px 0',
-            letterSpacing: '0.2px'
+            letterSpacing: '0.2px',
+            width: '100%',
+            wordBreak: 'break-word' // Text lines ko frame ke baahar tootne se rokega
           }}
         >
           Hello, I am{' '}
@@ -146,9 +161,16 @@ function Home() {
           . A B.Tech CSE student passionate about growth, optimization, and software development.
         </h2> 
 
+        {/* BUTTON ROW GRID */}
         <div 
           className="button-row-layout"
-          style={{ display: 'flex', gap: '16px', width: '100%', flexWrap: 'wrap' }}
+          style={{ 
+            display: 'flex', 
+            gap: '16px', 
+            width: '100%', 
+            flexWrap: 'wrap',
+            boxSizing: 'border-box'
+          }}
         >
           <button
             onClick={() => navigate('/contact')}
@@ -166,7 +188,8 @@ function Home() {
               letterSpacing: '0.5px',
               boxShadow: isStartHovered ? '0 8px 25px rgba(0, 234, 255, 0.45)' : '0 4px 12px rgba(0, 234, 255, 0.05)',
               transform: isStartHovered ? 'translateY(-3px)' : 'translateY(0)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              flexShrink: 0
             }}
           >
             Start a Project
@@ -189,7 +212,8 @@ function Home() {
               letterSpacing: '0.5px',
               boxShadow: isBrowseHovered ? '0 8px 25px rgba(255, 255, 255, 0.25)' : 'none',
               transform: isBrowseHovered ? 'translateY(-3px)' : 'translateY(0)',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+              flexShrink: 0
             }}
           >
             Browse Works

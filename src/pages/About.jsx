@@ -7,7 +7,6 @@ function About() {
   const getBadgeStyle = (id, activeColor) => ({
     display: 'inline-block',
     padding: '4px 12px',
-    margin: '0 4px',
     borderRadius: '8px',
     backgroundColor: hoveredBadge === id ? activeColor : 'rgba(255, 255, 255, 0.05)',
     color: hoveredBadge === id ? '#050508' : '#ffffff',
@@ -17,6 +16,7 @@ function About() {
     cursor: 'pointer',
     transform: hoveredBadge === id ? 'translateY(-2px)' : 'translateY(0)',
     transition: 'all 0.2s ease-in-out',
+    whiteSpace: 'nowrap' // Badge text ko split hone se rokega
   });
 
   return (
@@ -27,6 +27,7 @@ function About() {
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
+        maxWidth: '100%',
         minHeight: '91vh',
         boxSizing: 'border-box',
         backgroundColor: '#050508',
@@ -34,20 +35,14 @@ function About() {
         color: '#ffffff',
         padding: '100px 24px',
         fontFamily: '"Inter", "Segoe UI", sans-serif',
-        position: 'relative',
-        overflow: 'hidden'
+
+        overflowX: 'hidden' // Strict section restriction
       }}
     >
       <style>{`
         @keyframes cardEntrance {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
@@ -82,7 +77,7 @@ function About() {
           maxWidth: '800px',
           width: '100%',
           boxSizing: 'border-box',
-          padding: '50px 40px',
+          padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 40px)', // Mobile standard responsive padding
           textAlign: 'left',
           lineHeight: '1.9',
           fontSize: 'clamp(1.05rem, 2vw, 1.2rem)',
@@ -103,6 +98,7 @@ function About() {
           animation: 'cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
           transform: isCardHovered ? 'translateY(-6px)' : 'translateY(0)',
+          wordBreak: 'break-word'
         }}
       >
         <span style={{ fontSize: '1.7rem', display: 'block', marginBottom: '20px' }}>
@@ -114,7 +110,7 @@ function About() {
           }}>Ani</span> 👋
         </span>
         
-        A curious mind, a {' '}
+        A curious mind, a{' '}
         <span 
           onMouseEnter={() => setHoveredBadge('solver')} 
           onMouseLeave={() => setHoveredBadge(null)}
@@ -124,7 +120,7 @@ function About() {
         </span>
         , and someone who believes big things start with small lines of code.
         <br /><br />
-        I’m a computer science student who loves turning ideas into real, working products—whether it’s a stunning frontend interface, a cross-platform mobile app, or a robust {' '}
+        I’m a computer science student who loves turning ideas into real, working products—whether it’s a stunning frontend interface, a cross-platform mobile app, or a robust{' '}
         <span 
           onMouseEnter={() => setHoveredBadge('backend')} 
           onMouseLeave={() => setHoveredBadge(null)}
@@ -136,8 +132,9 @@ function About() {
         <br /><br />
         Right now, I enjoy diving deep into how things break and work behind the scenes:
         
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '25px', alignItems: 'center' }}>
-          <span style={{ color: '#63637e', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '1px', marginRight: '5px' }}>CORE_FOCUS:</span>
+        {/* Safe text container adjustments for tag layout */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '25px', alignItems: 'center', width: '100%' }}>
+          <span style={{ color: '#63637e', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '1px' }}>CORE_FOCUS:</span>
           <span onMouseEnter={() => setHoveredBadge('apis')} onMouseLeave={() => setHoveredBadge(null)} style={getBadgeStyle('apis', '#00eaff')}>APIs</span>
           <span onMouseEnter={() => setHoveredBadge('db')} onMouseLeave={() => setHoveredBadge(null)} style={getBadgeStyle('db', '#925fff')}>Databases</span>
           <span onMouseEnter={() => setHoveredBadge('sd')} onMouseLeave={() => setHoveredBadge(null)} style={getBadgeStyle('sd', '#00eaff')}>System Design</span>

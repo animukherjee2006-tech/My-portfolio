@@ -30,13 +30,16 @@ function Contact() {
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
+        maxWidth: '100%',
         minHeight: '100vh',
         boxSizing: 'border-box',
         backgroundColor: '#050508',
         backgroundImage: 'radial-gradient(circle at 50% 50%, #121026 0%, #050508 70%)',
         color: '#ffffff',
         padding: '100px 24px 80px 24px',
-        fontFamily: '"Inter", "Segoe UI", sans-serif'
+        fontFamily: '"Inter", "Segoe UI", sans-serif',
+        overflowX: 'hidden',
+       
       }}
     >
       <div style={{ marginBottom: '50px', textAlign: 'center' }}>
@@ -75,13 +78,15 @@ function Contact() {
           boxSizing: 'border-box'
         }}
       >
+        {/* MESSAGE FORM BLOCK */}
         <div
           onMouseEnter={() => setIsFormCardHovered(true)}
           onMouseLeave={() => setIsFormCardHovered(false)}
           style={{
-            flex: '1 1 450px',
+            flex: '1 1 280px', // Dropped from 450px for mobile layout safety
+            maxWidth: '100%',
             boxSizing: 'border-box',
-            padding: '45px 35px',
+            padding: 'clamp(25px, 5vw, 45px) clamp(20px, 4vw, 35px)',
             background: isFormCardHovered ? 'rgba(15, 12, 38, 0.5)' : 'rgba(10, 10, 15, 0.3)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
@@ -151,7 +156,8 @@ function Contact() {
                 letterSpacing: '0.5px',
                 boxShadow: isSubmitHovered ? '0 8px 25px rgba(146, 95, 255, 0.35)' : 'none',
                 transform: isSubmitHovered ? 'translateY(-2px)' : 'translateY(0)',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                width: '100%'
               }}
             >
               Send Message
@@ -159,17 +165,19 @@ function Contact() {
           </form>
         </div>
 
+        {/* DIRECT REACH BLOCK */}
         <div
           onMouseEnter={() => setIsDirectCardHovered(true)}
           onMouseLeave={() => setIsDirectCardHovered(false)}
           style={{
-            flex: '1 1 320px',
+            flex: '1 1 280px', // Balanced standard compression line
+            maxWidth: '100%',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             boxSizing: 'border-box',
-            padding: '45px 35px',
+            padding: '45px 25px',
             background: isDirectCardHovered ? 'rgba(15, 12, 38, 0.5)' : 'rgba(10, 10, 15, 0.3)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
@@ -215,7 +223,7 @@ function Contact() {
             onMouseEnter={() => setIsLinkHovered(true)}
             onMouseLeave={() => setIsLinkHovered(false)}
             style={{
-              fontSize: '1.05rem',
+              fontSize: 'clamp(0.85rem, 4vw, 1.05rem)', // Scalable font constraints for links
               fontWeight: '700',
               textDecoration: 'none',
               background: 'linear-gradient(90deg, #00eaff, #925fff)',
@@ -223,7 +231,8 @@ function Contact() {
               WebkitTextFillColor: 'transparent',
               borderBottom: isLinkHovered ? '2px solid #00eaff' : '2px solid transparent',
               paddingBottom: '4px',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.2s ease',
+              wordBreak: 'break-all' // Link break block tracking
             }}
           >
             animukherjee2006@gmail.com
